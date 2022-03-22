@@ -20,15 +20,9 @@ We have write both training and evaluation function in the main.py, execute the 
     > python main.py
     
  ## Reference
-
-    >@article{deng2022anomaly,
-    
-    >  title={Anomaly Detection via Reverse Distillation from One-Class Embedding},
-    
-    >  author={Deng, Hanqiu and Li, Xingyu},
-    
-    >  journal={arXiv preprint arXiv:2201.10703},
-    
-    >  year={2022}
-    
-    >}
+@article{deng2022anomaly,    
+title={Anomaly Detection via Reverse Distillation from One-Class Embedding},
+author={Deng, Hanqiu and Li, Xingyu},
+journal={arXiv preprint arXiv:2201.10703},
+year={2022}
+}
