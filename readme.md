@@ -1,4 +1,4 @@
-﻿## Anomaly Detection via Reverse Distillation from One-Class Embedding
+﻿## Anomaly Detection via Reverse Distillation from One-Class Embedding (Offical)
 
 1. Environment
 	> pytorch == 1.91
@@ -12,3 +12,4 @@
 3. Train and Test the Model
 We have write both training and evaluation function in the main.py, execute the following command to see the training and evaluation results.
     > python main.py
+    
