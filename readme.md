@@ -1,5 +1,5 @@
 ﻿## Anomaly Detection via Reverse Distillation from One-Class Embedding 
- ## Implementation (Official Code)
+ ## Implementation (Official Code ⭐️ ⭐️ ⭐️ )
 
 1. Environment
 	> pytorch == 1.91
