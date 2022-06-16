@@ -20,9 +20,11 @@ We have write both training and evaluation function in the main.py, execute the 
     > python main.py
     
  ## Reference
-	@article{deng2022anomaly,    
-	title={Anomaly Detection via Reverse Distillation from One-Class Embedding},
-	author={Deng, Hanqiu and Li, Xingyu},
-	journal={arXiv preprint arXiv:2201.10703},
-	year={2022}
-	}
+	@InProceedings{Deng_2022_CVPR,
+    author    = {Deng, Hanqiu and Li, Xingyu},
+    title     = {Anomaly Detection via Reverse Distillation From One-Class Embedding},
+    booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+    month     = {June},
+    year      = {2022},
+    pages     = {9737-9746}
+}
