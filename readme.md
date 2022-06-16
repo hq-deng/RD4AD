@@ -26,5 +26,4 @@ We have write both training and evaluation function in the main.py, execute the 
     booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
     month     = {June},
     year      = {2022},
-    pages     = {9737-9746}
-}
+    pages     = {9737-9746}}
