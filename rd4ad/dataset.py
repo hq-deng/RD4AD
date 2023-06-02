@@ -1,6 +1,7 @@
 from torchvision import transforms
 from PIL import Image
 import os
+import os.path
 import torch
 import glob
 from torchvision.datasets import MNIST, CIFAR10, FashionMNIST, ImageFolder
@@ -47,13 +48,13 @@ class MVTecDataset(torch.utils.data.Dataset):
 
         for defect_type in defect_types:
             if defect_type == 'good':
-                img_paths = glob.glob(os.path.join(self.img_path, defect_type) + "/*.png")
+                img_paths = glob.glob(os.path.join(self.img_path, defect_type) + "/*.jpg")
                 img_tot_paths.extend(img_paths)
                 gt_tot_paths.extend([0] * len(img_paths))
                 tot_labels.extend([0] * len(img_paths))
                 tot_types.extend(['good'] * len(img_paths))
             else:
-                img_paths = glob.glob(os.path.join(self.img_path, defect_type) + "/*.png")
+                img_paths = glob.glob(os.path.join(self.img_path, defect_type) + "/*.jpg")
                 gt_paths = glob.glob(os.path.join(self.gt_path, defect_type) + "/*.png")
                 img_paths.sort()
                 gt_paths.sort()
@@ -62,7 +63,7 @@ class MVTecDataset(torch.utils.data.Dataset):
                 tot_labels.extend([1] * len(img_paths))
                 tot_types.extend([defect_type] * len(img_paths))
 
-        assert len(img_tot_paths) == len(gt_tot_paths), "Something wrong with test and ground truth pair!"
+        # assert len(img_tot_paths) == len(gt_tot_paths), "Something wrong with test and ground truth pair!"
 
         return img_tot_paths, gt_tot_paths, tot_labels, tot_types
 
@@ -70,18 +71,24 @@ class MVTecDataset(torch.utils.data.Dataset):
         return len(self.img_paths)
 
     def __getitem__(self, idx):
-        img_path, gt, label, img_type = self.img_paths[idx], self.gt_paths[idx], self.labels[idx], self.types[idx]
+        # img_path, gt, label, img_type = self.img_paths[idx], self.gt_paths[idx], self.labels[idx], self.types[idx]
+        # img = Image.open(img_path).convert('RGB')
+        # img = self.transform(img)
+        # if gt == 0:
+        #     gt = torch.zeros([1, img.size()[-2], img.size()[-2]])
+        # else:
+        #     gt = Image.open(gt)
+        #     gt = self.gt_transform(gt)
+
+        # assert img.size()[1:] == gt.size()[1:], "image.size != gt.size !!!"
+
+        # return img, gt, label, f"{img_type}_{os.path.split(img_path)[-1]}"
+
+        img_path = self.img_paths[idx]
         img = Image.open(img_path).convert('RGB')
         img = self.transform(img)
-        if gt == 0:
-            gt = torch.zeros([1, img.size()[-2], img.size()[-2]])
-        else:
-            gt = Image.open(gt)
-            gt = self.gt_transform(gt)
-
-        assert img.size()[1:] == gt.size()[1:], "image.size != gt.size !!!"
-
-        return img, gt, label, img_type
+        
+        return img, f"{os.path.split(img_path)[-1]}"
 
 def load_data(dataset_name='mnist',normal_class=0,batch_size='16'):
 
