@@ -2,7 +2,7 @@
  ## Implementation (Official Code ⭐️ ⭐️ ⭐️ )
 
 1. Environment
-	> pytorch == 1.91
+	> pytorch == 1.9.1
 	
 	> torchvision == 0.10.1
 	
