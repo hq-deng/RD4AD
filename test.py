@@ -113,7 +113,8 @@ def test(_class_):
 
     data_transform, gt_transform = get_data_transforms(256, 256)
     test_path = '../mvtec/' + _class_
-    ckp_path = './checkpoints/' + 'rm_1105_wres50_ff_mm_' + _class_ + '.pth'
+    #######ckp_path = './checkpoints/' + 'rm_1105_wres50_ff_mm_' + _class_ + '.pth'
+    ckp_path = './checkpoints/' + 'wres50_' + _class_ + '.pth'
     test_data = MVTecDataset(root=test_path, transform=data_transform, gt_transform=gt_transform, phase="test")
     test_dataloader = torch.utils.data.DataLoader(test_data, batch_size=1, shuffle=False)
     encoder, bn = wide_resnet50_2(pretrained=True)
